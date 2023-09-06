@@ -7,10 +7,26 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'foods', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'public_recipes', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'recipes', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'shopping_lists', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'navigation', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+  <nav>
+    <ul>
+      <li><%= link_to "Recipes", recipes_path %></li>
+      <li><%= link_to "Foods", foods_path %></li>
+      <li><%= link_to "Public Recipes", public_recipes_path %></li>
+      <li><%= link_to "Shopping Lists", shopping_list_path %></li>
+      
+    </ul>
+  </nav>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
