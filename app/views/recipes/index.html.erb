@@ -10,11 +10,13 @@
           <td class="indexTD">Description: <%= recipe.description %></td>
           <td class="indexTD">
             
-              <%= button_to "Remove",
-                            recipe,
-                            method: :delete,
-                            title: "Delete recipe",
-                            class: "delete" %>
+          <% if can?(:destroy, recipe) %>
+          <%= button_to "Remove",
+                        recipe,
+                        method: :delete,
+                        title: "Delete recipe",
+                        class: "delete" %>
+        <% end %>
            
           </td>
         </tr>

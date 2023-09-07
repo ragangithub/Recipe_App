@@ -1,6 +1,6 @@
 class ShoppingListsController < ApplicationController
   def index
-    @user = User.first
+    @user = current_user
     @foods = Food.all
     @recipes = Recipe.where(user_id: @user.id) # or @recipes =@user.recipes
 
