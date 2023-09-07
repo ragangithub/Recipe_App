@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
+  load_and_authorize_resource
   def index
-    @foods = User.first.foods
+    @foods = current_user.foods
   end
 
   def new
@@ -9,7 +10,7 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-    @food.user = User.first
+    @food.user = current_user
 
     if @food.save
       redirect_to foods_url, notice: 'Food was successfully created.'

@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = User.first.recipes
+    @recipes = current_user.recipes
   end
 
   def show
@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user = User.first
+    @recipe.user = current_user
 
     if @recipe.save
       redirect_to recipes_path, notice: 'Recipe Created Successfully'
